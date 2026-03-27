@@ -1,12 +1,46 @@
 <!-- index.html -->
-<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Role</title>
+    <link rel="icon" href="../assets/images/logo/Logo.png">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../js/util.js" defer></script>
+    <script src="../js/render.js" defer></script>
+    <script src="../js/components/header.js" defer></script>
+    <script src="../js/components/footer.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div id="header"></div>
+            
+            <main>
+                <h1>Select Your Role</h1>
+                <div class="role-buttons">
+                    <button id="admin-btn" class="role-btn">Admin</button>
+                    <button id="patient-btn" class="role-btn">Patient</button>
+                    <button id="doctor-btn" class="role-btn">Doctor</button>
+                </div>
+            </main>
+            
+            <div id="footer"></div>
+        </div>
+    </div>
 
-Step-by-Step Explanation of `index.html`.
-This file allows users to select a role (Admin, Patient, Doctor) 
-and triggers modal-based login functionality.
+    <div id="modal" class="modal">
+        <div class="modal">
+            <button id="modal-close" class="modal-close">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
 
-1. Label the File
-
+    <script type="module" src="../js/index.js" defer></script>
+</body>
+</html>
+<!--
    * Add a comment at the very top to identify the file as `index.html`. This helps developers stay organized.
 
 2. Declare Document Type

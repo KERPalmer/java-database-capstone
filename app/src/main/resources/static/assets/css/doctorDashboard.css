@@ -63,3 +63,95 @@
 
 Let me know if you'd like a consolidated style guide for the entire HospitalCRM frontend.
  */
+
+/* Styles generated from guide comments above */
+
+.table-header {
+  font-size: 24px;
+  color: #015c5d;
+  margin: 0 0 30px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #33333310;
+  color: #fff;
+}
+
+td,
+th {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f959;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffffc0;
+}
+
+tr:hover {
+  background-color: #015c5d39;
+}
+
+.prescription-btn {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.prescription-btn:hover {
+  transform: scale(1.1);
+  filter: brightness(1.15);
+}
+
+.prescription-btn:active {
+  transform: scale(0.95);
+}
+
+.noPatientRecord {
+  font-size: 16px;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.today-btn {
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #015c5d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: filter 120ms ease;
+}
+
+.today-btn:hover {
+  filter: brightness(1.1);
+}
+
+.date-picker {
+  margin-left: 10px;
+  margin-top: 13px;
+  border-radius: 8px;
+  padding: 10px;
+  height: 30px;
+  border: 1px solid #ccc;
+}

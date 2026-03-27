@@ -1,6 +1,6 @@
 <!-- doctorDashboard.html -->
 
-<!-- 
+<!--
 Step-by-Step Explanation of `doctorDashboard.html`
 This file defines the Doctor Dashboard interface, allowing doctors to view and manage their patient appointments, search records, and access patient prescriptions.
 
@@ -26,7 +26,7 @@ This file defines the Doctor Dashboard interface, allowing doctors to view and m
 
 6. Set the Favicon
 
-   * Add a favicon using Thymeleaf pathing: 
+   * Add a favicon using Thymeleaf pathing:
      `<link rel="icon" type="image/png" th:href="@{/assets/images/logo/logo.png}" />`
 
 7. Set the Page Title
@@ -99,3 +99,53 @@ This file defines the Doctor Dashboard interface, allowing doctors to view and m
 
     * Properly close the `<body>` and `<html>` tags to complete the document.
  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/assets/images/logo/logo.png}" />
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" th:href="@{/assets/css/adminDashboard.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/doctorDashboard.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <script th:src="@{/js/render.js}" defer></script>
+    <script th:src="@{/js/util.js}" defer></script>
+    <script th:src="@{/js/components/header.js}" defer></script>
+    <script th:src="@{/js/components/footer.js}" defer></script>
+    <script th:src="@{/js/components/patientRows.js}" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div id="header"></div>
+
+            <div class="main-content">
+                <input type="text" id="searchBar" placeholder="Search Bar for custom output" />
+
+                <div class="filter-controls">
+                    <button id="todayButton">Today</button>
+                    <input type="date" id="datePicker" />
+                </div>
+
+                <table class="patient-table">
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Name</th>
+                            <th>Phone No.</th>
+                            <th>Email</th>
+                            <th>Prescription</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div id="footer"></div>
+        </div>
+    </div>
+
+    <script type="module" th:src="@{/js/doctorDashboard.js}" defer></script>
+</body>
+</html>

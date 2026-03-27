@@ -1,8 +1,8 @@
 <!-- adminDashboard.html -->
 
-<!-- 
+<!--
 Step-by-Step Explanation of `adminDashboard.html`
-This file creates the Admin Dashboard interface for managing doctor-related data 
+This file creates the Admin Dashboard interface for managing doctor-related data
 with search, filter, and modal functionality.
 
 
@@ -24,7 +24,7 @@ with search, filter, and modal functionality.
 
 5. Set the Favicon
 
-   * Add a favicon for browser tabs using Thymeleaf pathing: 
+   * Add a favicon for browser tabs using Thymeleaf pathing:
      `<link rel="icon" type="image/png" th:href="@{/assets/images/logo/logo.png}" />`.
 
 6. Set the Page Title
@@ -99,11 +99,52 @@ with search, filter, and modal functionality.
     HINT:
         `<script type="module" src="../../static/js/adminDashboard.js" defer></script>`
         `<script type="module" src="../../static/js/doctorDashboard.js" defer></script>`
-        
-        
+
+
 20. Close the Body and HTML Tags
 
     * Finish the structure by properly closing all tags.
 
  -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/assets/images/logo/logo.png}" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/assets/css/adminDashboard.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <script th:src="@{/js/render.js}" defer></script>
+    <script th:src="@{/js/util.js}" defer></script>
+    <script th:src="@{/js/components/header.js}" defer></script>
+    <script th:src="@{/js/components/footer.js}" defer></script>
+</head>
+<body onload="renderContent()">
+    <div class="container">
+        <div class="wrapper">
+            <div id="header"></div>
+
+            <main class="main-content">
+                <div class="filter-section">
+                        <input type="text" id="searchBar" placeholder="Search byDoctor name">
+                        <select id="timeFilter" class="filter-select"></select>
+                        <select id="specialtyFilter" class="filter-select"></select>
+                        <div id="content" class="content-area"></div>
+                </div>
+            </main>
+
+            <div id="footer"></div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <span id="closeModal" class="close">&times;</span>
+        <div id="modal-body"></div>
+    </div>
+
+    <script type="module" th:src="@{/js/adminDashboard.js}" defer></script>
+    <script type="module" th:src="@{/js/doctorCard.js}" defer></script>
+</body>
+</html>
 
