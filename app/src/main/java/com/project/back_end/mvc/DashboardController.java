@@ -1,7 +1,34 @@
 package com.project.back_end.mvc;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.project.back_end.services.TokenService;
+
+@Controller
 public class DashboardController {
 
+    TokenService tokenService;
+
+    DashboardController(TokenService tokenService){
+        this.tokenService = tokenService;
+    }
+
+    @GetMapping("/adminDashboard/{token}")
+    public String getAdminDashboard(@PathVariable String token){
+
+        return tokenService.validateToken(token, "admin") ?
+        "admin/adminDashboard" : "redirect:/login";
+    }
+
+    @GetMapping("/doctorDashboard/{token}")
+    public String getDoctorDashboard(@PathVariable String token){
+
+        return tokenService.validateToken(token, "doctor") ?
+        "doctor/doctorDashboard" : "redirect:/login";
+    }
+}
 // 1. Set Up the MVC Controller Class:
 //    - Annotate the class with `@Controller` to indicate that it serves as an MVC controller returning view names (not JSON).
 //    - This class handles routing to admin and doctor dashboard pages based on token validation.
@@ -25,6 +52,3 @@ public class DashboardController {
 //    - Validates the token using the shared service for the `"doctor"` role.
 //    - If the token is valid, forwards the user to the `"doctor/doctorDashboard"` view.
 //    - If the token is invalid, redirects to the root URL.
-
-
-}
