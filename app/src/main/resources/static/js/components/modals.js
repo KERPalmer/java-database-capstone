@@ -75,7 +75,7 @@ export function openModal(type) {
   document.getElementById('modal-body').innerHTML = modalContent;
   document.getElementById('modal').style.display = 'block';
 
-  document.getElementById('closeModal').onclick = () => {
+  document.getElementById('modal-close').onclick = () => {
     document.getElementById('modal').style.display = 'none';
   };
 
