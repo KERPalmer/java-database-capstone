@@ -4,26 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Select Role</title>
-    <link rel="icon" href="../assets/images/logo/Logo.png">
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="./assets/images/logo/logo.png">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <script type="module" src="js/services/index.js" defer></script>
-    <script src="../js/util.js" defer></script>
-    <script src="../js/render.js" defer></script>
-    <script src="../js/components/header.js" defer></script>
-    <script src="../js/components/footer.js" defer></script>
+    <script src="./js/util.js" defer></script>
+    <script src="./js/render.js" defer></script>
+    <script src="./js/components/header.js" defer></script>
+    <script src="./js/components/footer.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="wrapper">
             <div id="header"></div>
             
-            <main>
+            <main class="main-content">
                 <h1>Select Your Role</h1>
                 <div class="role-buttons">
-                    <button id="admin-btn" class="role-btn">Admin</button>
-                    <button id="patient-btn" class="role-btn">Patient</button>
-                    <button id="doctor-btn" class="role-btn">Doctor</button>
+                    <button id="adminBtn" class="roleBtn">Admin</button>
+                    <button id="patientBtn" class="roleBtn">Patient</button>
+                    <button id="doctorBtn" class="roleBtn">Doctor</button>
                 </div>
             </main>
             
@@ -32,13 +32,13 @@
     </div>
 
     <div id="modal" class="modal">
-        <div class="modal">
+        <div id = "modal-content">
             <button id="modal-close" class="modal-close">&times;</button>
             <div id="modal-body"></div>
         </div>
     </div>
 
-    <script type="module" src="../js/index.js" defer></script>
+    <script type="module" src="././js/services/index.js" defer></script>
 </body>
 </html>
 <!--
@@ -103,7 +103,7 @@
 
 13. Insert a Header Placeholder
 
-    * Add a `div` that will be dynamically filled by JavaScript with the site’s header.
+    * Add a `div` that JavaScript will dynamically fill with the site’s header.
 
 14. Define the Main Section
 
@@ -120,7 +120,7 @@
 
 17. Insert a Footer Placeholder
 
-    * Add a `div` that will be dynamically filled by JavaScript with the site’s footer.
+    * Add a `div` that JavaScript will dynamically fill with the site’s footer.
 
 18. Create a Modal Structure
 

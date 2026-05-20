@@ -126,12 +126,32 @@ with search, filter, and modal functionality.
             <div id="header"></div>
 
             <main class="main-content">
-                <div class="filter-section">
-                        <input type="text" id="searchBar" placeholder="Search byDoctor name">
-                        <select id="timeFilter" class="filter-select"></select>
-                        <select id="specialtyFilter" class="filter-select"></select>
-                        <div id="content" class="content-area"></div>
+                <input type="text" id="searchBar" class="searchBar" placeholder="search by doctor name" />
+                <div class="filter-wrapper">
+                    <select class="filter-select" id="filterTime">
+                        <option value="">Sort by time</option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                    <select class="filter-select" id="filterSpecialty">
+                        <option value="">Specialty</option>
+                        <option value="Cardiologist">Cardiologist</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="Neurologist">Neurologist</option>
+                        <option value="Pediatrician">Pediatrician</option>
+                        <option value="Orthopedic">Orthopedic</option>
+                        <option value="Gynecologist">Gynecologist</option>
+                        <option value="Psychiatrist">Psychiatrist</option>
+                        <option value="Dentist">Dentist</option>
+                        <option value="Ophthalmologist">Ophthalmologist</option>
+                        <option value="Ent">ENT Specialist</option>
+                        <option value="Urologist">Urologist</option>
+                        <option value="Oncologist">Oncologist</option>
+                        <option value="Gastroenterologist">Gastroenterologist</option>
+                        <option value="General">General Physician</option>
+                    </select>
                 </div>
+                <div id="content"></div>
             </main>
 
             <div id="footer"></div>
@@ -139,8 +159,10 @@ with search, filter, and modal functionality.
     </div>
 
     <div id="modal" class="modal">
-        <span id="closeModal" class="close">&times;</span>
-        <div id="modal-body"></div>
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
     </div>
 
     <script type="module" th:src="@{/js/adminDashboard.js}" defer></script>

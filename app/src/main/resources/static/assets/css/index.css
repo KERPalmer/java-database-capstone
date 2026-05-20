@@ -1,6 +1,6 @@
 /* this is the style sheet file for index.html */
 
-/* 
+/*
 **Global Reset (`*`)**
 
 * Remove all default margin and padding.
@@ -90,7 +90,7 @@ h2 {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/defineRole/index.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

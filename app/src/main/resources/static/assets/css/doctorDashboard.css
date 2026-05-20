@@ -58,13 +58,7 @@
 * Add left margin (`10px`) and top margin (`13px`).
 * Round corners with `8px` radius.
 * Add padding (`10px`) and set fixed height (`30px`).
-
----
-
-Let me know if you'd like a consolidated style guide for the entire HospitalCRM frontend.
  */
-
-/* Styles generated from guide comments above */
 
 .table-header {
   font-size: 24px;

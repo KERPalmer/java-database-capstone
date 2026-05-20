@@ -116,36 +116,31 @@ This file defines the Doctor Dashboard interface, allowing doctors to view and m
     <script th:src="@{/js/components/patientRows.js}" defer></script>
 </head>
 
-<body>
-    <div class="container">
-        <div class="wrapper">
-            <div id="header"></div>
-
-            <div class="main-content">
-                <input type="text" id="searchBar" placeholder="Search Bar for custom output" />
-
-                <div class="filter-controls">
-                    <button id="todayButton">Today</button>
-                    <input type="date" id="datePicker" />
-                </div>
-
-                <table class="patient-table">
-                    <thead>
-                        <tr>
-                            <th>Patient ID</th>
-                            <th>Name</th>
-                            <th>Phone No.</th>
-                            <th>Email</th>
-                            <th>Prescription</th>
-                        </tr>
-                    </thead>
-                </table>
+<body onload="renderContent()">
+<div class="container">
+    <div class="wrapper">
+        <div id="header"></div>
+        <div class="main-content">
+            <input type="text" id="searchBar" class="searchBar" placeholder="Search Bar for custom output" />
+            <div class="filter-wrapper">
+                <button class="today-btn" id="todayButton">Today's Appointments</button>
+                <input type="date" id="datePicker" class="date-picker" />
             </div>
-
-            <div id="footer"></div>
+            <table id="patientTable">
+                <thead class="table-header">
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Phone No.</th>
+                    <th>Email</th>
+                    <th>Prescription</th>
+                </tr>
+                </thead>
+                <tbody id="patientTableBody"></tbody>
+            </table>
         </div>
+        <div id="footer"></div>
     </div>
-
-    <script type="module" th:src="@{/js/doctorDashboard.js}" defer></script>
+</div>
 </body>
 </html>
