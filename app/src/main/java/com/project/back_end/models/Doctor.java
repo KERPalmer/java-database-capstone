@@ -8,6 +8,7 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -28,7 +29,7 @@ public class Doctor {
     private String specialty;
 
     @NotNull(message = "Doctor's email cannot be null")
-    @jakarta.validation.constraints.Email(message = "Doctor's email must be a valid email address")
+    @Email(message = "Doctor's email must be a valid email address")
     private String email;
 
     @NotNull(message = "Doctor's password cannot be null")

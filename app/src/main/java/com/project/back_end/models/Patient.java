@@ -3,6 +3,7 @@ package com.project.back_end.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -19,7 +20,7 @@ public class Patient {
     private String name;
 
     @NotNull(message = "Patient's email cannot be null")
-    @jakarta.validation.constraints.Email(message = "Patient's email must be a valid email address")
+    @Email(message = "Patient's email must be a valid email address")
     private String email;
 
     @NotNull(message = "Patient's password cannot be null")
@@ -27,7 +28,7 @@ public class Patient {
     private String password;
 
     @NotNull(message = "Patient's phone number cannot be null")
-    @Pattern(regexp = "^[0-9]{10}$", message = "Patient's phone number must be exactly 10 digits")
+    @Pattern(regexp = "\\d{10}", message = "Patient's phone number must be exactly 10 digits")
     private String phone;
 
     @NotNull(message = "Patient's address cannot be null")
@@ -81,6 +82,4 @@ public class Patient {
     public void setAddress(String address) {
         this.address = address;
     }
-  
-
 }
