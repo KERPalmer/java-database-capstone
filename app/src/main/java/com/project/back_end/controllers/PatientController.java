@@ -1,7 +1,5 @@
 package com.project.back_end.controllers;
 
-public class PatientController {
-
 // 1. Set Up the Controller Class:
 //    - Annotate the class with `@RestController` to define it as a REST API controller for patient-related operations.
 //    - Use `@RequestMapping("/patient")` to prefix all endpoints with `/patient`, grouping all patient functionalities under a common route.
@@ -11,6 +9,8 @@ public class PatientController {
 //    - Inject `PatientService` to handle patient-specific logic such as creation, retrieval, and appointments.
 //    - Inject the shared `Service` class for tasks like token validation and login authentication.
 
+
+public class PatientController {
 
 // 3. Define the `getPatient` Method:
 //    - Handles HTTP GET requests to retrieve patient details using a token.

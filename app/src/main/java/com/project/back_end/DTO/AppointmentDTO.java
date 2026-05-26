@@ -101,7 +101,7 @@ public class AppointmentDTO {
         this.appointmentTime = appointmentTime;
         this.status = status;
 
-        //other appointment time related  fields
+        //other appointment time related fields
         this.appointmentDate = appointmentTime.toLocalDate();
         this.appointmentTimeOnly = appointmentTime.toLocalTime();
         this.endTime = appointmentTime.plusHours(1);

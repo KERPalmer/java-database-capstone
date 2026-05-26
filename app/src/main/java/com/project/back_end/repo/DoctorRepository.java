@@ -8,23 +8,22 @@ import org.springframework.stereotype.Repository;
 
 import com.project.back_end.models.Doctor;
 
+// 1. Extend JpaRepository:
+//    - The repository extends JpaRepository<Doctor, Long>, which gives it basic CRUD functionality.
+//    - This allows the repository to perform operations like save, delete, update, and find without needing to implement these methods manually.
+//    - JpaRepository also includes features like pagination and sorting.
+
+// Example: public interface DoctorRepository extends JpaRepository<Doctor, Long> {}
+
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
-
-    // 1. Extend JpaRepository:
-    //    - The repository extends JpaRepository<Doctor, Long>, which gives it basic CRUD functionality.
-    //    - This allows the repository to perform operations like save, delete, update, and find without needing to implement these methods manually.
-    //    - JpaRepository also includes features like pagination and sorting.
-
-    // Example: public interface DoctorRepository extends JpaRepository<Doctor, Long> {}
-
     // 2. Custom Query Methods:
 
     //    - **findByEmail**:
     //      - This method retrieves a Doctor by their email.
     //      - Return type: Doctor
     //      - Parameters: String email
-   public Doctor findByEmail(String email);
+   public <Optional>Doctor findByEmail(String email);
    
     //    - **findByNameLike**:
     //      - This method retrieves a list of Doctors whose name contains the provided search string (case-sensitive).

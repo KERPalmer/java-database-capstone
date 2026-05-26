@@ -4,16 +4,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.project.back_end.models.Admin;
-
-@Repository
-public interface AdminRepository extends JpaRepository<Admin, Long> {
-
-    // 1. Extend JpaRepository:
+// 1. Extend JpaRepository:
 //    - The repository extends JpaRepository<Admin, Long>, which gives it basic CRUD functionality.
 //    - The methods such as save, delete, update, and find are inherited without the need for explicit implementation.
 //    - JpaRepository also includes pagination and sorting features.
 
 // Example: public interface AdminRepository extends JpaRepository<Admin, Long> {}
+
+@Repository
+public interface AdminRepository extends JpaRepository<Admin, Long> {
+
+    public Admin findByUsername(String username);
+
+}
 
 // 2. Custom Query Method:
 //    - **findByUsername**:
@@ -22,8 +25,7 @@ public interface AdminRepository extends JpaRepository<Admin, Long> {
 //      - Parameter: String username
 //      - It will return an Admin entity that matches the provided username.
 //      - If no Admin is found with the given username, it returns null.
-    public Admin findByUsername(String username);
-// Example: public Admin findByUsername(String username);
+//      - Example: public Admin findByUsername(String username);
 
 // 3. Add @Repository annotation:
 //    - The @Repository annotation marks this interface as a Spring Data JPA repository.
@@ -31,5 +33,3 @@ public interface AdminRepository extends JpaRepository<Admin, Long> {
 //    - Spring Data JPA automatically implements the repository, providing the necessary CRUD functionality.
 
 // Example: @Repository
-//          public interface AdminRepository extends JpaRepository<Admin, Long> { ... }
-}
