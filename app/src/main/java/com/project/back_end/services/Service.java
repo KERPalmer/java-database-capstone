@@ -94,7 +94,7 @@ public class Service {
 // - It supports various combinations of the three filters.
 // - If none of the filters are provided, it returns all available doctors.
 // This flexible filtering mechanism allows the frontend or consumers of the API to search and narrow down doctors based on user criteria.
-    public Map<String, Object> filterDoctor(String name, String specialty, String time){
+    public Map<String, Object> filterDoctor(String name, String time, String specialty){
         boolean hasName = name != null && !name.equalsIgnoreCase("null");
         boolean hasSpecialty = specialty != null && !specialty.equalsIgnoreCase("null");
         boolean hasTime = time != null && !time.equalsIgnoreCase("null");

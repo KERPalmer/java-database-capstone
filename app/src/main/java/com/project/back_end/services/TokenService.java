@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
+import java.util.Base64;
 
 // 1. **@Component Annotation**
 // The @Component annotation marks this class as a Spring component, meaning Spring will manage it as a bean within its application context.
@@ -23,7 +24,7 @@ import java.util.Date;
 @Component
 public class TokenService {
 
-    @Value("${jwt.secret")
+    @Value("${jwt.secret}")
     private String secret;
 
     private final AdminRepository adminRepository;
@@ -41,7 +42,8 @@ public class TokenService {
 // It uses the `jwt.secret` value, which is provided from an external source (like application properties).
 // The `Keys.hmacShaKeyFor()` method converts the secret key string into a valid `SecretKey` for signing and verification of JWTs.
     public SecretKey getSigningKey(){
-        return Keys.hmacShaKeyFor(secret.getBytes());
+        byte[] keyBytes = Base64.getDecoder().decode(secret);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
 

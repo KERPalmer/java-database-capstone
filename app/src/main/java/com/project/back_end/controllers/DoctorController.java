@@ -184,7 +184,7 @@ public class DoctorController {
             @PathVariable String time,
             @PathVariable String speciality
     ){
-        return ResponseEntity.ok(service.filterDoctor(name, speciality, time));
+        return ResponseEntity.ok(service.filterDoctor(name, time, speciality));
     }
 
 }

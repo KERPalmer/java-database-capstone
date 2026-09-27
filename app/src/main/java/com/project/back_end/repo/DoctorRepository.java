@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.query.Param;
 
 import com.project.back_end.models.Doctor;
 
@@ -30,7 +31,7 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     //      - The `CONCAT('%', :name, '%')` is used to create a pattern for partial matching.
     //      - Return type: List<Doctor>
     //      - Parameters: String name
-   @Query("SELECT d FROM Doctor d WHERE d.name LIKE CONCAT('%', :name, '%')")
+   @Query("SELECT d FROM Doctor d  WHERE d.name LIKE CONCAT('%', :name, '%')")
    public List<Doctor> findByNameLike(String name);
 
     //    - **findByNameContainingIgnoreCaseAndSpecialtyIgnoreCase**:
@@ -45,6 +46,9 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     //      - This method retrieves a list of Doctors with the specified specialty, ignoring case sensitivity.
     //      - Return type: List<Doctor>
     //      - Parameters: String specialty
-   @Query("SELECT d FROM Doctor d WHERE LOWER(d.specialty) = LOWER(:specialty)")
-   public List<Doctor> findBySpecialtyIgnoreCase(String specialty);
+    @Query("SELECT DISTINCT d FROM Doctor d LEFT JOIN FETCH d.availableTimes WHERE LOWER(d.specialty) = LOWER(:specialty)")
+    public List<Doctor> findBySpecialtyIgnoreCase(@Param("specialty") String specialty);
+
+   @Query("SELECT DISTINCT d FROM Doctor d LEFT JOIN FETCH d.availableTimes")
+    List<Doctor> findAllWithAvailableTimes();
 }
