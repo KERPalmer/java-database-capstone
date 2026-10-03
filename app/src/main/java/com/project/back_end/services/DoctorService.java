@@ -15,8 +15,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import java.util.stream.Collectors;
 
 // 1. **Add @Service Annotation**:
@@ -26,8 +24,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class DoctorService {
-
-    private static final java.util.logging.Logger logger = LoggerFactory.getLogger(DoctorService.class);
     
     private final DoctorRepository doctorRepository;
     private final AppointmentRepository appointmentRepository;
@@ -283,14 +279,9 @@ public Map<String, Object> filterDoctorByTime(
    }
 
     private List<Doctor> filterGivenDoctorsByTime(List<Doctor> doctors, String time) {
-        logger.info("doctors: {}", doctors.toString());
         return doctors.stream()
             .filter(doctor -> doctor.getAvailableTimes().stream()
-                .anyMatch(slot -> {
-                    logger.info(slot);
-                    slot.equals(time);
-                })
-                )
+                .anyMatch(slot -> slot.equals(time)))
             .collect(Collectors.toList());
     }
 }
