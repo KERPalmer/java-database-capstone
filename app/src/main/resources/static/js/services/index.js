@@ -7,11 +7,15 @@ const DOCTOR_API = API_BASE_URL + "/doctor/login";
 window.onload = function() {
     const adminLoginBtn = document.getElementById('adminBtn');
     const doctorLoginBtn = document.getElementById('doctorBtn');
+    const patientBtn = document.getElementById('patientBtn');
     if (adminLoginBtn) {
         adminLoginBtn.addEventListener('click', () => openModal('adminLogin'));
     }
     if (doctorLoginBtn) {
         doctorLoginBtn.addEventListener('click', () => openModal('doctorLogin'));
+    }
+    if (patientBtn) {
+        patientBtn.addEventListener('click', () => selectRole('patient'));
     }
 };
 
