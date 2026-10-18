@@ -31,16 +31,16 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     //      - The `CONCAT('%', :name, '%')` is used to create a pattern for partial matching.
     //      - Return type: List<Doctor>
     //      - Parameters: String name
-   @Query("SELECT d FROM Doctor d  WHERE d.name LIKE CONCAT('%', :name, '%')")
-   public List<Doctor> findByNameLike(String name);
+    @Query("SELECT DISTINCT d FROM Doctor d LEFT JOIN FETCH d.availableTimes WHERE LOWER(d.name) LIKE LOWER(CONCAT('%', :name, '%'))")
+    List<Doctor> findByNameLike(@Param("name") String name);
 
     //    - **findByNameContainingIgnoreCaseAndSpecialtyIgnoreCase**:
     //      - This method retrieves a list of Doctors where the name contains the search string (case-insensitive) and the specialty matches exactly (case-insensitive).
     //      - It combines both fields for a more specific search.
     //      - Return type: List<Doctor>
     //      - Parameters: String name, String specialty
-   @Query("SELECT d FROM Doctor d WHERE LOWER(d.name) LIKE LOWER(CONCAT('%', :name, '%')) AND LOWER(d.specialty) = LOWER(:specialty)")
-   public List<Doctor> findByNameContainingIgnoreCaseAndSpecialtyIgnoreCase(String name, String specialty);
+@Query("SELECT DISTINCT d FROM Doctor d LEFT JOIN FETCH d.availableTimes WHERE LOWER(d.name) LIKE LOWER(CONCAT('%', :name, '%')) AND LOWER(d.specialty) = LOWER(:specialty)")
+List<Doctor> findByNameContainingIgnoreCaseAndSpecialtyIgnoreCase(@Param("name") String name, @Param("specialty") String specialty);
 
     //    - **findBySpecialtyIgnoreCase**:
     //      - This method retrieves a list of Doctors with the specified specialty, ignoring case sensitivity.

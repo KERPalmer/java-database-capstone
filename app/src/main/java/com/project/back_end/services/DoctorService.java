@@ -277,11 +277,15 @@ public Map<String, Object> filterDoctorByTime(
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
        return start.format(formatter) + "-" + end.format(formatter);
    }
-
+   
     private List<Doctor> filterGivenDoctorsByTime(List<Doctor> doctors, String time) {
+        boolean wantAm = time.equalsIgnoreCase("AM");
         return doctors.stream()
-            .filter(doctor -> doctor.getAvailableTimes().stream()
-                .anyMatch(slot -> slot.equals(time)))
+            .filter(doctor -> doctor.getAvailableTimes() != null
+                && doctor.getAvailableTimes().stream().anyMatch(slot -> {
+                    int startHour = Integer.parseInt(slot.split(":")[0].trim());
+                    return wantAm ? startHour < 12 : startHour >= 12;
+                }))
             .collect(Collectors.toList());
     }
 }
