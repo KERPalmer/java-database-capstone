@@ -17,8 +17,8 @@ window.onload = function() {
 
 window.adminLoginHandler = async function() {
     try {
-        const username = document.getElementById('adminUsername').value;
-        const password = document.getElementById('adminPassword').value;
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
         const admin = { username, password };
 
         const response = await fetch(ADMIN_API, {
@@ -42,8 +42,8 @@ window.adminLoginHandler = async function() {
 
 window.doctorLoginHandler = async function() {
     try {
-        const email = document.getElementById('doctorEmail').value;
-        const password = document.getElementById('doctorPassword').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
         const doctor = { email, password };
 
         const response = await fetch(DOCTOR_API, {
