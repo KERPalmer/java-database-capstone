@@ -88,7 +88,7 @@ public class TokenService {
     public boolean validateToken(String token, String user){
         try{
             String extractedEmail = extractEmail(token);
-            return switch (user) {
+            return switch (user.toLowerCase()) {
                 case "admin" -> adminRepository.findByUsername(extractedEmail) != null;
                 case "doctor" -> doctorRepository.findByEmail(extractedEmail) != null;
                 case "patient" -> patientRepository.findByEmail(extractedEmail) != null;

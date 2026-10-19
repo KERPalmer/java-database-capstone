@@ -69,7 +69,7 @@ public class AppointmentController {
             @RequestBody @Valid Appointment appointment,
             @PathVariable String token
     ){
-        ResponseEntity<Map<String, String>> validationResult = service.validateToken(token, "Patient");
+        ResponseEntity<Map<String, String>> validationResult = service.validateToken(token, "patient");
         if(validationResult.getStatusCode().is4xxClientError()) return validationResult;
 
         Map<String, String> result = new HashMap<>();
@@ -108,7 +108,7 @@ public class AppointmentController {
             @PathVariable String token,
             @RequestBody @Valid Appointment appointment
     ){
-        ResponseEntity<Map<String, String>> validationResult = service.validateToken(token, "Patient");
+        ResponseEntity<Map<String, String>> validationResult = service.validateToken(token, "patient");
         if(validationResult.getStatusCode().is4xxClientError()){
             return validationResult;
         }
@@ -124,7 +124,7 @@ public class AppointmentController {
     public ResponseEntity<Map<String, String>> deleteAppointment(
             @PathVariable Long id,
             @PathVariable String token){
-        ResponseEntity<Map<String, String>> validationResult = service.validateToken(token, "Patient");
+        ResponseEntity<Map<String, String>> validationResult = service.validateToken(token, "patient");
         if(validationResult.getStatusCode().is4xxClientError()){
             return validationResult;
         }

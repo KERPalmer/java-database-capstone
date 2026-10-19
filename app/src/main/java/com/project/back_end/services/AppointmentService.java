@@ -116,7 +116,7 @@ public class AppointmentService {
 
         String extractedToken = tokenService.extractEmail(token);
         Patient patient = patientRepository.findByEmail(extractedToken);
-        if(!Objects.equals(patient.getId(), appointment.get().getId())){
+        if(!Objects.equals(patient.getId(), appointment.get().getPatient().getId())){
             response.put("message", "patient id are not equal");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
